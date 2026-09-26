@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asif Al Masud — Aspiring Educator</title>
+<meta name="description" content="Portfolio and CV of Asif Al Masud, aspiring education professional based in Dhaka, Bangladesh.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0F1A;
+    --bg-soft:#0F1524;
+    --panel:rgba(255,255,255,0.045);
+    --panel-border:rgba(255,255,255,0.10);
+    --text:#F3F1EA;
+    --text-soft:#AEB4C2;
+    --text-faint:#707893;
+    --gold:#E3B155;
+    --teal:#45BFAE;
+    --indigo:#8285E3;
+    --line:rgba(255,255,255,0.10);
+    --serif:'Fraunces', Georgia, 'Times New Roman', serif;
+    --sans:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --maxw:760px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:var(--sans); line-height:1.65; -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+  ::selection{ background:var(--gold); color:#0B0F1A; }
+
+  ::-webkit-scrollbar{ width:10px; }
+  ::-webkit-scrollbar-track{ background:var(--bg); }
+  ::-webkit-scrollbar-thumb{ background:linear-gradient(var(--gold),var(--teal)); border-radius:6px; }
+
+  /* ---------- Aurora background ---------- */
+  .aurora{ position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+  .blob{ position:absolute; border-radius:50%; filter:blur(110px); opacity:.35; will-change:transform; }
+  .blob-1{ width:520px; height:520px; background:var(--gold); top:-140px; left:-100px; animation:drift1 26s ease-in-out infinite; }
+  .blob-2{ width:600px; height:600px; background:var(--teal); bottom:-200px; right:-160px; animation:drift2 30s ease-in-out infinite; }
+  .blob-3{ width:420px; height:420px; background:var(--indigo); top:40%; left:50%; animation:drift3 34s ease-in-out infinite; }
+  @keyframes drift1{ 0%,100%{ transform:translate(0,0);} 50%{ transform:translate(80px,60px);} }
+  @keyframes drift2{ 0%,100%{ transform:translate(0,0);} 50%{ transform:translate(-70px,-50px);} }
+  @keyframes drift3{ 0%,100%{ transform:translate(-50%,0);} 50%{ transform:translate(-50%,60px);} }
+
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; position:relative; z-index:1; }
+  .wrap-wide{ max-width:980px; margin:0 auto; padding:0 28px; position:relative; z-index:1; }
+
+  section{ padding:100px 0; border-bottom:1px solid var(--line); position:relative; z-index:1; }
+  section:last-of-type{ border-bottom:none; }
+
+  h1,h2,h3{ font-family:var(--serif); font-weight:500; margin:0; }
+
+  .section-head{ margin-bottom:48px; }
+  .section-head h2{ font-size:clamp(28px,4vw,38px); font-style:italic; color:var(--text); }
+  .section-head .rule{ width:56px; height:2px; margin-top:16px; border:none;
+    background:linear-gradient(90deg,var(--gold),var(--teal)); }
+
+  /* scroll reveal */
+  .reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in-view{ opacity:1; transform:translateY(0); }
+
+  /* ---------- Nav ---------- */
+  header{ position:sticky; top:0; z-index:50; }
+  .progress{ height:3px; background:linear-gradient(90deg,var(--gold),var(--teal)); width:0%; transition:width .1s linear; }
+  nav{
+    max-width:980px; margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+    background:rgba(11,15,26,0.72); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{ font-family:var(--serif); font-style:italic; font-size:20px; color:var(--text); text-decoration:none; }
+  .navlinks{ display:flex; gap:30px; list-style:none; margin:0; padding:0; }
+  .navlinks a{
+    text-decoration:none; font-size:14.5px; color:var(--text-soft); position:relative;
+    padding-bottom:4px; transition:color .2s ease;
+  }
+  .navlinks a::after{ content:''; position:absolute; left:0; bottom:0; width:0; height:1px;
+    background:var(--gold); transition:width .25s ease; }
+  .navlinks a:hover, .navlinks a.active{ color:var(--text); }
+  .navlinks a:hover::after, .navlinks a.active::after{ width:100%; }
+
+  .navtoggle{ display:none; background:none; border:none; cursor:pointer; padding:6px; }
+  .navtoggle span{ display:block; width:22px; height:2px; background:var(--text); margin:5px 0; }
+
+  @media (max-width:640px){
+    .navlinks{ position:absolute; top:100%; left:0; right:0; background:var(--bg-soft);
+      flex-direction:column; gap:0; max-height:0; overflow:hidden; transition:max-height .3s ease;
+      border-bottom:1px solid var(--line); }
+    .navlinks.open{ max-height:280px; }
+    .navlinks li{ border-top:1px solid var(--line); }
+    .navlinks a{ display:block; padding:16px 28px; }
+    .navlinks a::after{ display:none; }
+    .navtoggle{ display:block; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{ padding:90px 0 100px; border-bottom:1px solid var(--line); }
+  .hero .wrap-wide{ display:grid; grid-template-columns:1.4fr .7fr; gap:56px; align-items:center; }
+  .eyebrow-line{ font-size:15px; color:var(--teal); font-weight:500; margin:0 0 14px;
+    opacity:0; animation:riseIn .7s ease forwards; animation-delay:.05s; }
+  .hero h1{
+    font-size:clamp(40px,6.4vw,62px); line-height:1.06; margin:0 0 18px;
+    background:linear-gradient(100deg,var(--text) 20%,var(--gold) 45%,var(--teal) 65%,var(--text) 85%);
+    background-size:220% auto; -webkit-background-clip:text; background-clip:text; color:transparent;
+    animation:riseIn .7s ease forwards, shimmer 7s ease-in-out infinite;
+    animation-delay:.15s, 1s; opacity:0;
+  }
+  .hero .tagline{
+    font-family:var(--serif); font-style:italic; font-size:clamp(19px,2.4vw,24px);
+    color:var(--text-soft); margin:0 0 24px; min-height:1.4em;
+  }
+  .hero .meta{
+    display:flex; flex-wrap:wrap; gap:10px 22px; font-size:14.5px; color:var(--text-soft);
+    opacity:0; animation:riseIn .7s ease forwards; animation-delay:.55s;
+  }
+  .hero .meta a{ text-decoration:none; border-bottom:1px solid var(--line); }
+  .hero .meta a:hover{ border-color:var(--gold); color:var(--gold); }
+
+  @keyframes riseIn{ from{ opacity:0; transform:translateY(16px);} to{ opacity:1; transform:translateY(0);} }
+  @keyframes shimmer{ 0%,100%{ background-position:0% 50%; } 50%{ background-position:100% 50%; } }
+
+  .portrait-frame{
+    position:relative; width:100%; max-width:230px; aspect-ratio:4/5; margin-left:auto;
+    opacity:0; animation:riseIn .8s ease forwards; animation-delay:.2s;
+  }
+  .portrait-inner{
+    position:relative; width:100%; height:100%; border-radius:14px; overflow:hidden;
+    background:var(--bg-soft); border:1px solid var(--panel-border); z-index:1;
+  }
+  .portrait-inner img{ width:100%; height:100%; object-fit:cover; }
+  .portrait-fallback{
+    position:absolute; inset:0; display:none; align-items:center; justify-content:center;
+    font-family:var(--serif); font-style:italic; font-size:52px; color:var(--gold); background:var(--bg-soft);
+  }
+
+  @media (max-width:700px){
+    .hero .wrap-wide{ grid-template-columns:1fr; }
+    .portrait-frame{ margin:0 0 8px; max-width:170px; }
+  }
+
+  /* ---------- About ---------- */
+  .about p{ font-size:18px; color:var(--text-soft); max-width:66ch; text-align:justify; text-align-last:left; }
+  .about p::first-letter{
+    font-family:var(--serif); font-style:italic; font-size:56px; color:var(--gold);
+    float:left; line-height:.8; margin:6px 8px 0 0;
+  }
+
+  /* ---------- Timeline ---------- */
+  .timeline-group{ margin-bottom:44px; }
+  .timeline-group:last-child{ margin-bottom:0; }
+  .timeline-kicker{ font-family:var(--serif); font-style:italic; font-size:20px; margin:0 0 24px; }
+  .entry{
+    display:grid; grid-template-columns:130px 1fr; gap:24px; position:relative; padding-bottom:32px;
+  }
+  .entry:last-child{ padding-bottom:0; }
+  .spine{ position:absolute; left:130px; top:6px; bottom:-4px; width:1px; margin-left:12px;
+    background:var(--line); transform:scaleY(0); transform-origin:top; transition:transform .9s ease; }
+  .in-view .spine{ transform:scaleY(1); }
+  .entry:last-child .spine{ display:none; }
+  .dot{ position:absolute; left:130px; top:5px; width:8px; height:8px; margin-left:9px; border-radius:50%;
+    background:var(--gold); box-shadow:0 0 0 0 rgba(227,177,85,.5); transition:box-shadow .3s ease; }
+  .entry:hover .dot{ box-shadow:0 0 0 6px rgba(227,177,85,.18); }
+  .entry-date{ font-size:14px; color:var(--text-faint); font-variant-numeric:tabular-nums; padding-top:2px; }
+  .entry-role{ font-size:18px; font-weight:600; color:var(--text); margin:0 0 2px; }
+  .entry-org{ font-size:15px; color:var(--teal); margin:0 0 10px; }
+  .entry ul{ margin:0; padding-left:18px; color:var(--text-soft); font-size:15.5px; text-align:justify; text-align-last:left; }
+  .entry ul li{ margin-bottom:6px; }
+  .entry ul li:last-child{ margin-bottom:0; }
+  .entry-sub{ font-size:15px; color:var(--text-soft); margin:0; }
+
+  @media (max-width:600px){
+    .entry{ grid-template-columns:1fr; gap:6px; padding-left:20px; }
+    .spine, .dot{ left:0; margin-left:0; }
+    .entry-date{ padding-top:0; }
+  }
+
+  /* ---------- Skills ---------- */
+  .skills-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  .skill-panel{
+    background:var(--panel); border:1px solid var(--panel-border); border-radius:14px; padding:26px;
+    transition:transform .25s ease, border-color .25s ease, background .25s ease;
+  }
+  .skill-panel:hover{ transform:translateY(-4px); border-color:rgba(227,177,85,.4); background:rgba(255,255,255,0.06); }
+  .skill-panel h3{ font-size:17px; font-style:italic; margin-bottom:16px; }
+  .skill-panel ul{ list-style:none; margin:0; padding:0; }
+  .skill-panel li{ font-size:15px; color:var(--text-soft); padding:7px 0 7px 16px; position:relative;
+    border-top:1px solid var(--line); }
+  .skill-panel li:first-child{ border-top:none; padding-top:0; }
+  .skill-panel li::before{ content:''; position:absolute; left:0; top:15px; width:6px; height:6px;
+    background:var(--gold); border-radius:1px; }
+  @media (max-width:700px){ .skills-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- Contact ---------- */
+  .contact p{ color:var(--text-soft); max-width:56ch; font-size:17px; margin-bottom:28px; text-align:justify; text-align-last:left; }
+  .contact-btn{
+    position:relative; overflow:hidden; display:inline-flex; align-items:center; gap:10px;
+    font-family:var(--sans); font-weight:600; font-size:15px; color:#0B0F1A;
+    background:linear-gradient(90deg,var(--gold),var(--teal)); text-decoration:none; padding:15px 28px;
+    border-radius:10px; transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .contact-btn:hover{ transform:translateY(-2px); box-shadow:0 10px 30px -10px rgba(227,177,85,.5); }
+  .contact-details{ margin-top:28px; font-size:14.5px; color:var(--text-faint); }
+  .contact-details span{ display:block; margin-top:4px; }
+
+  footer{ padding:32px 0; font-size:13.5px; color:var(--text-faint); position:relative; z-index:1; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .blob, .hero h1, .portrait-frame::before{ animation:none !important; }
+    .eyebrow-line, .hero h1, .hero .meta, .portrait-frame{ opacity:1 !important; transform:none !important; animation:none !important; }
+    .reveal{ opacity:1 !important; transform:none !important; }
+    .spine{ transform:scaleY(1) !important; }
+    .cursor{ animation:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="aurora">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+
+<header>
+  <div class="progress" id="progressBar"></div>
+  <nav>
+    <a href="#top" class="brand">Asif Al Masud</a>
+    <button class="navtoggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="navlinks" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap-wide">
+      <div>
+        <p class="eyebrow-line">Dhaka, Bangladesh</p>
+        <h1>Asif Al Masud</h1>
+        <p class="tagline">Aspiring Educator</p>
+        <div class="meta">
+          <a href="mailto:asifmasud11@gmail.com">asifmasud11@gmail.com</a>
+          <span>Institute of Education and Research, University of Dhaka</span>
+        </div>
+      </div>
+      <div class="portrait-frame" id="portraitFrame">
+        <div class="portrait-inner">
+          <img src="Asif.jpg" alt="Asif Al Masud" id="portrait"
+               onerror="this.style.display='none'; document.getElementById('portraitFallback').style.display='flex';">
+          <div class="portrait-fallback" id="portraitFallback">AM</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>About</h2>
+        <hr class="rule">
+      </div>
+      <p>I'm an aspiring education professional currently pursuing my Master's in Education at the University of Dhaka, with practical classroom experience as an intern teacher and exam evaluator. I'm passionate about creating inclusive, engaging learning environments and have hands-on experience in lesson planning, assessment, and developing tactile learning materials for diverse students. Alongside my teaching work, I've also contributed to educational research through data collection and qualitative analysis, and I enjoy bringing both a research-driven and student-centered approach to my work.</p>
+    </div>
+  </section>
+
+  <section id="experience" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Experience</h2>
+        <hr class="rule">
+      </div>
+
+      <div class="timeline-group">
+        <h3 class="timeline-kicker">Professional Experience</h3>
+
+        <div class="entry reveal">
+          <div class="entry-date">Nov 2024 – Mar 2025</div>
+          <div class="spine"></div><div class="dot"></div>
+          <div>
+            <p class="entry-role">Intern Teacher</p>
+            <p class="entry-org">Baptist Mission Integrated School</p>
+            <ul>
+              <li>Managed classroom instruction, lesson planning and student assessment.</li>
+              <li>Ensured a productive and inclusive learning environment for diverse learners.</li>
+              <li>Developed and applied interactive, content-aligned tactile resources.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="entry reveal">
+          <div class="entry-date">Jan 2023 – Jan 2026</div>
+          <div class="spine"></div><div class="dot"></div>
+          <div>
+            <p class="entry-role">Exam Script Evaluator</p>
+            <p class="entry-org">Udvash Academic &amp; Admission Care</p>
+            <ul>
+              <li>Evaluated and graded SSC &amp; HSC level model test exam scripts for Bangla and English subjects.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-group">
+        <h3 class="timeline-kicker">Research Experience</h3>
+        <div class="entry reveal">
+          <div class="entry-date">Nov 2025</div>
+          <div class="spine"></div><div class="dot"></div>
+          <div>
+            <p class="entry-role">Data Enumerator</p>
+            <p class="entry-org">Effectiveness Study on Continuous Professional Development (CPD) Program and Training</p>
+            <ul>
+              <li>Collected data across districts through interviews.</li>
+              <li>Transcribed and organized qualitative data.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Education</h2>
+        <hr class="rule">
+      </div>
+
+      <div class="entry reveal">
+        <div class="entry-date">2026 – Present</div>
+        <div class="spine"></div><div class="dot"></div>
+        <div>
+          <p class="entry-role">Masters of Education</p>
+          <p class="entry-sub">Institute of Education and Research, University of Dhaka · Dhaka, Bangladesh</p>
+        </div>
+      </div>
+      <div class="entry reveal">
+        <div class="entry-date">2022 – 2025</div>
+        <div class="spine"></div><div class="dot"></div>
+        <div>
+          <p class="entry-role">Bachelor of Education</p>
+          <p class="entry-sub">Institute of Education and Research, University of Dhaka · Dhaka, Bangladesh — CGPA 3.65</p>
+        </div>
+      </div>
+      <div class="entry reveal">
+        <div class="entry-date">2020</div>
+        <div class="spine"></div><div class="dot"></div>
+        <div>
+          <p class="entry-role">Higher Secondary Certificate (Science)</p>
+          <p class="entry-sub">Government Science College, Dhaka Board — GPA 5.00</p>
+        </div>
+      </div>
+      <div class="entry reveal">
+        <div class="entry-date">2018</div>
+        <div class="spine"></div><div class="dot"></div>
+        <div>
+          <p class="entry-role">Secondary School Certificate (Science)</p>
+          <p class="entry-sub">Government Laboratory High School, Dhaka Board — GPA 5.00</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Skills</h2>
+        <hr class="rule">
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-panel">
+          <h3>Teaching &amp; Content</h3>
+          <ul>
+            <li>Lesson Planning</li>
+            <li>Tactile Material Development</li>
+            <li>Assessment</li>
+            <li>Classroom Management</li>
+          </ul>
+        </div>
+        <div class="skill-panel">
+          <h3>Research</h3>
+          <ul>
+            <li>Data Collection</li>
+            <li>Interviewing</li>
+            <li>Transcription</li>
+            <li>Qualitative &amp; Quantitative Research</li>
+          </ul>
+        </div>
+        <div class="skill-panel">
+          <h3>Soft Skills</h3>
+          <ul>
+            <li>Communication</li>
+            <li>Teamwork</li>
+            <li>Adaptability</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <hr class="rule">
+      </div>
+      <p>Open to opportunities in teaching, education research and academic program support. Feel free to reach out.</p>
+      <a class="contact-btn" href="mailto:asifmasud11@gmail.com">Email me</a>
+      <div class="contact-details">
+        <span>asifmasud11@gmail.com</span>
+        <span>Dhaka, Bangladesh</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">&copy; <span id="year"></span> Asif Al Masud</div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Scroll progress bar
+  const progressBar = document.getElementById('progressBar');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progressBar.style.width = scrolled + '%';
+  });
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('main section[id]');
+  const navA = document.querySelectorAll('.navlinks a');
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        navA.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px' });
+  sections.forEach(s => navObserver.observe(s));
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  if(reduceMotion){
+    revealEls.forEach(el => el.classList.add('in-view'));
+  } else {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => revealObserver.observe(el));
+  }
+
+</script>
+
+</body>
+</html>
